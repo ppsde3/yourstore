@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
     
   protect_from_forgery with: :exception
 
-
   private
 
   def current_user
@@ -15,7 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def cart
-    # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end
   helper_method :cart
